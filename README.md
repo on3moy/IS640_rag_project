@@ -73,13 +73,7 @@ Follow the instructions in [`docker_starter.md`](docker_starter.md) to:
 
 ### Step 3: Create Conda Environment
 
-```bash
-# Create environment from file
-conda env create -f rag_env.yml
-
-# Activate environment
-conda activate rag3_313
-```
+- Refer to rag_env_starter.md
 
 ### Step 4: Build and Start the Ollama LLM
 
@@ -96,7 +90,7 @@ docker run -d --rm --name ollama-mistral-offline -p 127.0.0.1:11434:11434 ollama
 docker run -d --rm --gpus all --name ollama-mistral-offline -p 127.0.0.1:11434:11434 ollama-mistral-img
 ```
 
-For more Docker commands, see [`COMMANDS.txt`](COMMANDS.txt).
+For more Docker commands, see [`docker_commands.md`](docker_commands.md).
 
 ### Step 5: Verify Your Setup
 
@@ -119,6 +113,7 @@ All required packages are included in `rag_env.yml`:
 - `chromadb` - Vector database
 - `requests` - HTTP client for LLM
 - `numpy`, `pandas` - Data processing
+- `streamlit` - GUI for chat interface
 
 ### Hardware
 
@@ -139,7 +134,7 @@ The dockerfile uses a multi-stage build to:
 2. Pull the Mistral 7B model
 3. Create a minimal runtime image
 
-See [`docker_starter.md`](docker_starter.md) for detailed Docker Desktop setup and [`COMMANDS.txt`](COMMANDS.txt) for build/run commands.
+See [`docker_starter.md`](docker_starter.md) for detailed Docker Desktop setup and [`docker_commands.md`](docker_commands.md) for build/run commands.
 
 ## Group Project Assignment
 
@@ -203,7 +198,7 @@ curl http://127.0.0.1:11434/api/tags
 
 - **Assignment Questions:** See [`STUDENT_PROJECT_GUIDE.md`](STUDENT_PROJECT_GUIDE.md)
 - **Docker Setup:** See [`docker_starter.md`](docker_starter.md)
-- **Docker Commands:** See [`COMMANDS.txt`](COMMANDS.txt)
+- **Docker Commands:** See [`docker_commands.md`](docker_commands.md)
 - **Technical Issues:** Check the troubleshooting section above
 
 ## Resources

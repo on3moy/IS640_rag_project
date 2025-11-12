@@ -42,7 +42,7 @@ COPY --from=builder --chown=10001:10001 /models /models
 
 USER app
 ENV OLLAMA_MODELS=/models
-ENV OLLAMA_HOST=127.0.0.1:11434
+ENV OLLAMA_HOST=0.0.0.0:11434
 
 # Simple healthcheck: list local models
 HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
