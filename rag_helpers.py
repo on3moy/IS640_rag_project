@@ -141,7 +141,7 @@ class LLM:
         self.generate_url = f"{base_url}/api/generate"
         print(f"✓ LLM initialized: {model} at {base_url}")
 
-    def generate_answer(self, prompt: str) -> str:
+    def generate_answer(self, prompt: str, timeout=120) -> str:
         """
         Generate text using the LLM.
 
@@ -158,7 +158,7 @@ class LLM:
         }
 
         try:
-            response = requests.post(self.generate_url, json=payload, timeout=120)
+            response = requests.post(self.generate_url, json=payload, timeout=timeout)
             response.raise_for_status()
             return response.json()['response']
         except requests.exceptions.RequestException as e:
