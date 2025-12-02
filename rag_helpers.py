@@ -134,14 +134,14 @@ class LLM:
     """
 
     def __init__(self, base_url: str = "http://127.0.0.1:11434",
-                 model: str = "mistral"):
+                 model: str = "mistral:7b"):
         """Initialize connection to Ollama LLM."""
         self.base_url = base_url
         self.model = model
         self.generate_url = f"{base_url}/api/generate"
         print(f"✓ LLM initialized: {model} at {base_url}")
 
-    def generate_answer(self, prompt: str, timeout=120) -> str:
+    def generate_answer(self, prompt: str) -> str:
         """
         Generate text using the LLM.
 
@@ -158,7 +158,7 @@ class LLM:
         }
 
         try:
-            response = requests.post(self.generate_url, json=payload, timeout=timeout)
+            response = requests.post(self.generate_url, json=payload, timeout=120)
             response.raise_for_status()
             return response.json()['response']
         except requests.exceptions.RequestException as e:
